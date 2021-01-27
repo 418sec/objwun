@@ -155,6 +155,11 @@ describe('set', () => {
             assert.strictEqual(e.message, "Missing expected argument");
         }
     });
+
+    it('should not pollute object prototype', () => {
+        ow.set({}, '__proto__.polluted', true);
+        assert.strictEqual({}.polluted, undefined);
+    })
     
     it('∂ should be a pure function', () => {
         const o = [{a: 1},    

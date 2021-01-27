@@ -15,7 +15,7 @@ function set(obj, path, value) {
         tmp = res;
         
     for (null; i < l-1; i++) { 
-        if (!(els[i] in tmp) || core.in.isPrimitive(tmp[els[i]])) {
+        if (core.ut.isBlacklisted(els[i]) || !(els[i] in tmp) || core.in.isPrimitive(tmp[els[i]])) {
             //if next key is a number create an array, or use an obj
             tmp[els[i]] = els[i+1].match(/\d+/) ? [] : {};
         }

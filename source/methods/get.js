@@ -19,6 +19,7 @@ function get(obj, path, defaultValue) {
         there;
         
     while (++i < l) {
+        if (core.ut.isBlacklisted(els[i])) continue;
         there = els[i] in res;
         if (!there) return defaultValue || null;
         res = res[els[i]]; // still pure

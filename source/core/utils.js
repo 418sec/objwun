@@ -38,11 +38,14 @@
 
     function clone(o) {return JSON.parse(JSON.stringify(o));}
 
+    function isBlacklisted(key) {return ['__proto__', 'constructor', 'prototype'].includes(key);}
+
     core.ut = {
         args2arr: args2arr,
         arrLoop: arrLoop,
         clone: clone,
         objLoop: objLoop,
-        pick_omit: pick_omit
+        pick_omit: pick_omit,
+        isBlacklisted: isBlacklisted
     };
 }()
